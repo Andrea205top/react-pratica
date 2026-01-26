@@ -5,7 +5,7 @@ import usePagine from "./usePagine.ts";
 document.title = "Welcome page"; // componente padre
 function Welcome() {
 
-    const { count, incrementa, decrementa, reset, salvaNumero, resetSalvaNumero} = useStateExample(0);
+    const { count, incrementa, decrementa, reset, salvaNumero} = useStateExample(0);
 
     const { pState } = usePagine()
     const { paginaAttiva, onPagChangeClick } = pState;
@@ -22,7 +22,6 @@ function Welcome() {
                 decrementa={decrementa}
                 reset={reset}
                 salvaNumero={salvaNumero}
-                       resetSalvaNumero={resetSalvaNumero}
                 tornaIndietro={() => onPagChangeClick(0)}
                 />
         //QUA FINISCE
@@ -35,7 +34,6 @@ function Welcome() {
             decrementa={decrementa}
             reset={reset}
             salvaNumero={salvaNumero}
-                       resetSalvaNumero={resetSalvaNumero}
             tornaIndietro={() => onPagChangeClick(0)}
         />
         //QUA FINISCE
@@ -47,7 +45,7 @@ function Welcome() {
             decrementa={decrementa}
             reset={reset}
             salvaNumero={salvaNumero}
-                       resetSalvaNumero={resetSalvaNumero}
+
             tornaIndietro={() => onPagChangeClick(0)}
         />
         //QUA FINISCE
