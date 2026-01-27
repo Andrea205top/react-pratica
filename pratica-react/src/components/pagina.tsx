@@ -10,13 +10,11 @@ interface PaginaProps {
     tornaIndietro: () => void;
 }
 
-function Pagina({numeroPagina, count, incrementa, decrementa, reset, salvaNumero, tornaIndietro}: PaginaProps){
+function Pagina({numeroPagina, count, incrementa, decrementa, reset, salvaNumero}: PaginaProps){
 
     return(
         <div style={{ padding: '100px', border: '3px solid blue', borderRadius: '20px' }}>
-            <button onClick={tornaIndietro}>Welcome page</button>
             <h2>Pagina {numeroPagina}</h2>
-            <p>Counter</p>
 
             <Example
                 count={count}

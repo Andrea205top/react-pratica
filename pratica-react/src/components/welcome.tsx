@@ -1,6 +1,7 @@
 import Pagina from "./pagina.tsx";
 import useStateExample from "./useStateExample.ts";
 import usePagine from "./usePagine.ts";
+import Header from "./header.tsx";
 
 document.title = "Welcome page"; // componente padre
 function Welcome() {
@@ -16,51 +17,90 @@ function Welcome() {
 
 
     if (paginaAttiva === 1){
-        return <Pagina numeroPagina={1}
-                count = {count}
-                incrementa = {incrementa}
-                decrementa={decrementa}
-                reset={reset}
-                salvaNumero={salvaNumero}
-                tornaIndietro={() => onPagChangeClick(0)}
+        return (
+            <div>
+                {/* Header sempre visibile */}
+                <Header
+                    paginaAttiva={paginaAttiva}
+                    onPagChangeClick={onPagChangeClick}
                 />
+
+                {/* Contenuto della pagina */}
+                <Pagina
+                    numeroPagina={1}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    tornaIndietro={() => onPagChangeClick(0)}
+                    salvaNumero={salvaNumero}
+                />
+            </div>
+        );
         //QUA FINISCE
     }
 
     if (paginaAttiva === 2) {
-        return <Pagina numeroPagina={2}
-            count={count}
-            incrementa={incrementa}
-            decrementa={decrementa}
-            reset={reset}
-            salvaNumero={salvaNumero}
-            tornaIndietro={() => onPagChangeClick(0)}
-        />
+        return (
+            <div>
+                {/* Header sempre visibile */}
+                <Header
+                    paginaAttiva={paginaAttiva}
+                    onPagChangeClick={onPagChangeClick}
+                />
+
+                {/* Contenuto della pagina */}
+                <Pagina
+                    numeroPagina={2}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    tornaIndietro={() => onPagChangeClick(0)}
+                    salvaNumero={salvaNumero}
+                />
+            </div>
+        )
         //QUA FINISCE
     }
     if (paginaAttiva === 3) {
-        return <Pagina numeroPagina={3}
-            count={count}
-            incrementa={incrementa}
-            decrementa={decrementa}
-            reset={reset}
-            salvaNumero={salvaNumero}
+        return (
+            <div>
+                {/* Header sempre visibile */}
+                <Header
+                    paginaAttiva={paginaAttiva}
+                    onPagChangeClick={onPagChangeClick}
+                />
 
-            tornaIndietro={() => onPagChangeClick(0)}
-        />
+                {/* Contenuto della pagina */}
+                <Pagina
+                    numeroPagina={3}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    tornaIndietro={() => onPagChangeClick(0)}
+                    salvaNumero={salvaNumero}
+                />
+            </div>
+        )
         //QUA FINISCE
     }
 
     return(
-        <div style={{ padding: '50px' }}>
-            <h1>Welcome Page</h1>
-            <button onClick={() =>onPagChangeClick(1)}>Vai a Pagina 1</button>
-            <button onClick={() =>onPagChangeClick(2)}>Vai a Pagina 2</button>
-            <button onClick={() =>onPagChangeClick(3)}>Vai a Pagina 3</button>
-            <p style={{ fontSize: '24px', fontWeight: 'bold' }}>
+        <div>
+            {/* Header anche in Welcome */}
+            <Header
+                paginaAttiva={paginaAttiva}
+                onPagChangeClick={onPagChangeClick}
+            />
 
-            </p>
+            {/* Contenuto Welcome */}
+            <div style={{ padding: '50px' }}>
+                <h1>Benvenuto!</h1>
+            </div>
         </div>
+
     );
 }
 
