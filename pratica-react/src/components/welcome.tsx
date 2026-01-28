@@ -1,6 +1,7 @@
 import Pagina from "./pagina.tsx";
 import useStateExample from "./useStateExample.ts";
 import usePagine from "./usePagine.ts";
+import Footer from "./footer.tsx";
 
 document.title = "Welcome page"; // componente padre
 function Welcome() {
@@ -16,38 +17,46 @@ function Welcome() {
 
 
     if (paginaAttiva === 1){
-        return <Pagina numeroPagina={1}
-                count = {count}
-                incrementa = {incrementa}
-                decrementa={decrementa}
-                reset={reset}
-                salvaNumero={salvaNumero}
-                tornaIndietro={() => onPagChangeClick(0)}
-                />
+        return <>
+            <Pagina numeroPagina={1}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    salvaNumero={salvaNumero}
+                    tornaIndietro={() => onPagChangeClick(0)}
+            />
+            <Footer />
+        </>
         //QUA FINISCE
     }
 
     if (paginaAttiva === 2) {
-        return <Pagina numeroPagina={2}
-            count={count}
-            incrementa={incrementa}
-            decrementa={decrementa}
-            reset={reset}
-            salvaNumero={salvaNumero}
-            tornaIndietro={() => onPagChangeClick(0)}
-        />
+        return <>
+            <Pagina numeroPagina={2}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    salvaNumero={salvaNumero}
+                    tornaIndietro={() => onPagChangeClick(0)}
+            />
+            <Footer />
+        </>
         //QUA FINISCE
     }
     if (paginaAttiva === 3) {
-        return <Pagina numeroPagina={3}
-            count={count}
-            incrementa={incrementa}
-            decrementa={decrementa}
-            reset={reset}
-            salvaNumero={salvaNumero}
-
-            tornaIndietro={() => onPagChangeClick(0)}
-        />
+        return <>
+            <Pagina numeroPagina={3}
+                    count={count}
+                    incrementa={incrementa}
+                    decrementa={decrementa}
+                    reset={reset}
+                    salvaNumero={salvaNumero}
+                    tornaIndietro={() => onPagChangeClick(0)}
+            />
+            <Footer />
+        </>
         //QUA FINISCE
     }
 
@@ -60,6 +69,8 @@ function Welcome() {
             <p style={{ fontSize: '24px', fontWeight: 'bold' }}>
 
             </p>
+
+            <Footer />
         </div>
     );
 }

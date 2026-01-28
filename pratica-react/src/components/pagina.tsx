@@ -1,4 +1,6 @@
 import Example from "./Example.tsx";
+import Footer from "./footer.tsx";
+
 
 interface PaginaProps {
     numeroPagina: number;
@@ -26,6 +28,8 @@ function Pagina({numeroPagina, count, incrementa, decrementa, reset, salvaNumero
                 salvaNumero={salvaNumero}
 
             />
+
+            <Footer />
         </div>
     );
 
