@@ -7,6 +7,11 @@ interface HeaderProps{
 function Header({ paginaAttiva, onPagChangeClick }: HeaderProps) {
     return (
         <div style={{
+            position: 'fixed',
+            top: 0,                 // ← In alto
+            left: 0,                // ← Da sinistra
+            right: 0,               // ← Fino a destra
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
             padding: '20px',
             display: 'flex',
             gap: '10px',
