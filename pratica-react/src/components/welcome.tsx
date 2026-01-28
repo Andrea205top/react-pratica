@@ -2,7 +2,6 @@ import Pagina from "./pagina.tsx";
 import useStateExample from "./useStateExample.ts";
 import usePagine from "./usePagine.ts";
 import Header from "./header.tsx";
-import Footer from "./footer.tsx";
 
 document.title = "Welcome page"; // componente padre
 function Welcome() {
@@ -29,7 +28,6 @@ function Welcome() {
                     paginaAttiva={paginaAttiva}
                     onPagChangeClick={onPagChangeClick}
                 />
-                <Footer />
             </div>
         );
     }
