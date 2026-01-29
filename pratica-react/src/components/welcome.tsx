@@ -4,6 +4,8 @@ import usePagine from "./usePagine.ts";
 import Header from "./header.tsx";
 import Footer from "./footer.tsx";
 
+import useAPI from "./useAPI.ts";
+
 document.title = "Welcome page"; // componente padre
 function Welcome() {
 
@@ -23,6 +25,8 @@ function Welcome() {
                 <div style={{ padding: '50px' }}>
                     <h1>Benvenuto!</h1>
                 </div>
+
+                <button onClick={useAPI}>API</button>
 
                 {/* Contenuto Welcome */}
                 <Header

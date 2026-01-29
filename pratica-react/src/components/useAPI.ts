@@ -1,6 +1,8 @@
 import axios from "axios";
 
 function useAPI(){
+    console.log("sto usando useAPI");
+
 
     const API_URL = "https://apigw-prep.grupporealemutua.it/gateway/cIAM/loginEndpoint";
     const API_KEY = "d26c4461-169a-4792-b277-d0d1c2204913";
@@ -28,11 +30,12 @@ function useAPI(){
                 error: err.message || "Errore generico"
             }
         }
+    }
 
-        return {
+    return {
+        pApi:{
             fetchData,
         }
-
     }
 
 } export default useAPI;
