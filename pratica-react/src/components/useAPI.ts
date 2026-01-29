@@ -1,43 +1,67 @@
 import {useState} from 'react';
-import axios from "axios";
+import axios, {type AxiosResponse } from "axios";
 
-function useAPI(){
+const useAPI= ()=> { // T rende l'hook più generico possibile
 
+    interface ApiState<T> {
+        data: T | null;
+        loading: boolean;
+        error: string | null;
+    }
 
-    const [data, setData] = useState(null) // dati dell'api
-    const [loading, setLoading] = useState(false) // loading state
-    const [error, setError] = useState(null)
+    const [apiState, setApiState] = useState<ApiState<ApiState<any>>>({
+        data: null,
+        loading: false,
+        error: null
+    });
 
     const API_URL = "https://apigw-prep.grupporealemutua.it/gateway/cIAM/loginEndpoint";
     const API_KEY = "d26c4461-169a-4792-b277-d0d1c2204913";
 
     const fetchData = async () => {
-        setLoading(true);
-        setError(null);
+
+        // faccio partire il collegamneto
+        setApiState({
+            data: null,
+            loading: true,
+            error: null
+        });
 
         try{
-            const response = await axios.get(API_URL, {
-                headers: {
-                    "Autorization": `Bearer ${API_KEY}`
-                }
+            // faccio la chiamata
+            const response: AxiosResponse<ApiState<any>> = await axios.get(API_URL, {
+                    headers: {
+                        "Authorization": `Bearer ${API_KEY}`
+                    }
             });
 
-            console.log("Dati ricevuti: ", response.data);
-            setData(response.data)
-        } catch (err: any) {
-            console.error("Errore: ", err);
-            setError(err.message || "Errore generico");
-        } finally {
-            setLoading(false);
-        }
+            // salvo i dati
+            console.log("Dati ricevuti:", response.data);
+            setApiState({
+                data: response.data,
+                loading: false,
+                error: null
+            });
 
-
-        return {
-            data,
-            loading,
-            error,
-            fetchData
+        } catch (err: any){
+            console.error("Error:", err);
+            setApiState({
+                data: null,
+                loading: false,
+                error: err.message || "Errore generico"
+            });
         }
     }
 
-} export default useAPI;
+    return {
+        apiState: {
+            data: apiState.data,
+            loading: apiState.loading,
+            error: apiState.error,
+        },
+        fetchData
+    };
+
+}
+
+export default useAPI;
