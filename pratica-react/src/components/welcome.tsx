@@ -18,7 +18,10 @@ function Welcome() {
     const { fetchData } = pApi;
 
     const apiClick = async () => {
-        console.log("Bottone api click");
+        console.log("Bottone api cliccato");
+        console.log("Attendi...");
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         const chiamata = await fetchData();
 
