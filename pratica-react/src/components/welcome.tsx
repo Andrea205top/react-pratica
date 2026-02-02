@@ -14,9 +14,20 @@ function Welcome() {
     const { pState } = usePagine()
     const { paginaAttiva, onPagChangeClick } = pState;
 
-//    const { pagina1, onPag1Click} = p1;
-//    const { pagina2, onPag2Click} = p2;
-//    const { pagina1, pagina2, pagina3, onPagChangeClick } = pState;
+    const { pApi } = useAPI();
+    const { fetchData } = pApi;
+
+    const apiClick = async () => {
+        console.log("Bottone api click");
+
+        const chiamata = await fetchData();
+
+        if (chiamata.error) {
+            console.log(chiamata.error);
+        } else {
+            console.log(chiamata.data);
+        }
+    }
 
     if (paginaAttiva == 0){
         return (
@@ -26,7 +37,7 @@ function Welcome() {
                     <h1>Benvenuto!</h1>
                 </div>
 
-                <button onClick={useAPI}>API</button>
+                <button onClick={apiClick}>API</button>
 
                 {/* Contenuto Welcome */}
                 <Header

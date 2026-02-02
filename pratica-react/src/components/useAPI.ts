@@ -1,7 +1,6 @@
 import axios from "axios";
 
 function useAPI(){
-    console.log("sto usando useAPI");
 
 
     const API_URL = "https://apigw-prep.grupporealemutua.it/gateway/cIAM/loginEndpoint";
